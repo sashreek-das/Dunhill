@@ -1,6 +1,7 @@
 import { generateMnemonic } from "bip39";
 import { useState } from "react";
 import { SolanaWallet } from "../components/SolanaWallet";
+import { EthWallet } from "../components/EthWallet";
 
 export function Mnemonic() {
     const [mnemonic, setMnemonic] = useState("");
@@ -38,6 +39,7 @@ export function Mnemonic() {
                     Copy to Clipboard
                 </button>
                 {mnemonic && <SolanaWallet mnemonic={mnemonic} />}
+                {mnemonic && <EthWallet mnemonic={mnemonic} />}
             </div>
         </div>
     );
