@@ -12,13 +12,12 @@ export const EthWallet = ({mnemonic}) => {
         <div>
             <button onClick={async function(){
                 const seed = await mnemonicToSeed(mnemonic);
-                console.log(seed);
                 const derivationPath = `m/44'/60'/${currentIndex}'/0'`;
                 const hdNode = HDNodeWallet.fromSeed(seed);
                 const child = hdNode.derivePath(derivationPath);
                 const privateKey = child.privateKey;
-                console.log(privateKey);
                 const wallet = new Wallet(privateKey);
+                console.log(wallet.privateKey)
                 setCurrentIndex(currentIndex+1);
                 setAddresses([...addresses, wallet.address]);
             }} className="text-white">
